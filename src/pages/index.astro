@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+---
+<Layout title="Home">
+  <Hero />
+  <section class="container mx-auto py-8">
+    <h2 class="text-3xl font-heading mb-4">Discover Portugal's Hidden Gems</h2>
+    <p class="mb-4">Small group excursions in wine regions, tastings, and more. Inspired by Douro Valley and beyond.</p>
+    <!-- Top tours teaser -->
+    <div class="grid grid-cols-3 gap-4">
+      <!-- Placeholder cards -->
+      <div class="bg-white shadow p-4">Vale do Douro Tour</div>
+      <div class="bg-white shadow p-4">Amarante Wine Tasting</div>
+      <div class="bg-white shadow p-4">Braga Heritage Walk</div>
+    </div>
+    <a href="/tours" class="bg-primary text-white px-4 py-2 mt-4 inline-block">View All Excursions</a>
+  </section>
+</Layout>

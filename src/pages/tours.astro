@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TourCard from '../components/TourCard.astro';
+import FilterBar from '../components/FilterBar.react.jsx';
+---
+<Layout title="Tours & Excursions">
+  <section class="container mx-auto py-8">
+    <h1 class="text-4xl font-heading mb-4">Our Excursions</h1>
+    <FilterBar client:load /> <!-- React component for dynamic filters -->
+    <div class="grid grid-cols-3 gap-4 mt-4">
+      <!-- Dynamic tours from content collection -->
+      <TourCard title="Vale do Douro" description="Scenic wine tour" image="/images/douro.jpg" slug="vale-do-douro" />
+      <!-- Add more or fetch from MDX -->
+    </div>
+  </section>
+</Layout>

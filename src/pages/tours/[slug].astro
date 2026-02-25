@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingForm from '../../components/BookingForm.react.jsx';
+// Assume slug from URL, fetch content from MDX
+const { slug } = Astro.params;
+// Placeholder data
+const tour = { title: 'Sample Tour', description: 'Detailed desc', image: '/images/sample.jpg', affiliate: false };
+---
+<Layout title={tour.title}>
+  <section class="container mx-auto py-8">
+    <img src={tour.image} alt={tour.title} class="w-full h-64 object-cover" />
+    <h1 class="text-4xl font-heading mt-4">{tour.title}</h1>
+    <p class="mt-4">{tour.description}</p>
+    {tour.affiliate ? (
+      <a href="affiliate-link" class="bg-accent text-white px-4 py-2">Book via Partner</a>
+    ) : (
+      <BookingForm client:load tour={tour} />
+    )}
+    <!-- Itinerary, etc. -->
+    <h2 class="text-2xl mt-8">Itinerary</h2>
+    <ul>
+      <li>Step 1: ...</li>
+    </ul>
+  </section>
+</Layout>
