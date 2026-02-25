@@ -1,0 +1,28 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+// Assume auth check; redirect if not logged in
+---
+<MainLayout title="Admin Dashboard">
+  <section class="section">
+    <div class="container">
+      <h1>Admin Dashboard</h1>
+      <a href="/admin/activities">Manage Activities</a>
+      <a href="/admin/bookings">Manage Bookings</a>
+      <div id="agenda"></div> <!-- Voor FullCalendar -->
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  import { Calendar } from '@fullcalendar/core';
+  import dayGridPlugin from '@fullcalendar/daygrid';
+  document.addEventListener('DOMContentLoaded', () => {
+    const calendarEl = document.getElementById('agenda');
+    const calendar = new Calendar(calendarEl, {
+      plugins: [ dayGridPlugin ],
+      initialView: 'dayGridMonth',
+      events: [] // Fetch from API
+    });
+    calendar.render();
+  });
+</script>

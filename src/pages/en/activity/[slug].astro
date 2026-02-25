@@ -1,0 +1,46 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import BookingForm from '../../../components/BookingForm.svelte';
+// Fetch data based on slug (voorbeeld; later DB)
+const { slug } = Astro.params;
+const activity = {
+  title: 'Douro Valley Wine Journey', 
+  description: 'Detailed description here...', 
+  itinerary: ['Point 1', 'Point 2'], 
+  inclusions: ['Transport', 'Tastings'], 
+  image: '/assets/images/douro-vineyards.jpg', 
+  isAffiliate: false, 
+  affiliateLink: ''
+};
+---
+<MainLayout title={activity.title}>
+  <section class="hero small-hero">
+    <div class="hero-bg" style={`background-image: url(${activity.image});`}></div>
+    <div class="hero-content">
+      <h1>{activity.title}</h1>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <p>{activity.description}</p>
+      <h2>Itinerary</h2>
+      <ul>
+        {activity.itinerary.map(item => <li>{item}</li>)}
+      </ul>
+      <h2>Inclusions</h2>
+      <ul>
+        {activity.inclusions.map(item => <li>{item}</li>)}
+      </ul>
+      {activity.isAffiliate ? (
+        <a href={activity.affiliateLink} target="_blank" class="btn-primary">Book via Partner</a>
+      ) : (
+        <BookingForm client:load activitySlug={slug} />
+      )}
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .small-hero { height: 50vh; min-height: 400px; }
+  /* Andere styles hergebruiken */
+</style>

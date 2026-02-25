@@ -1,0 +1,38 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Filter from '../../components/Filter.svelte';
+// Voorbeeld data; later uit API/DB
+const activities = [
+  { slug: 'douro-wine-journey', title: 'Douro Valley Wine Journey', region: 'Douro', type: 'wine', groupSize: 8, image: '/assets/images/douro-vineyards.jpg', isAffiliate: false },
+  { slug: 'alentejo-secret', title: 'Alentejo Secret Tastings', region: 'Alentejo', type: 'tasting', groupSize: 6, image: '/assets/images/alentejo-tasting.jpg', isAffiliate: false },
+  { slug: 'sintra-highlights', title: 'Sintra Highlights', region: 'Lisbon', type: 'excursion', groupSize: 10, image: '/assets/images/sintra-palace.jpg', isAffiliate: true, affiliateLink: 'https://example-partner.com' },
+];
+---
+<MainLayout title="Activities">
+  <section class="section">
+    <div class="container">
+      <h1>Our Activities & Excursions</h1>
+      <Filter client:load activities={activities} />
+      <div class="grid-3" id="activities-list">
+        {activities.map(activity => (
+          <div class="activity-card">
+            <div class="activity-image" style={`background-image: url(${activity.image});`}></div>
+            <div class="activity-content">
+              <h3>{activity.title}</h3>
+              <p>Region: {activity.region} • Type: {activity.type} • Max Group: {activity.groupSize}</p>
+              {activity.isAffiliate ? (
+                <a href={activity.affiliateLink} target="_blank" class="btn-outline">Book via Partner</a>
+              ) : (
+                <a href={`/en/activity/${activity.slug}`} class="btn-outline">Details & Quote</a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Hergebruik styles uit index.astro */
+</style>

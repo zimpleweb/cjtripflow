@@ -1,0 +1,18 @@
+/* Basis vars en resets */
+:root {
+  --primary: #4A7043;
+  --secondary: #8B4513;
+  --accent: #D4A373;
+  --light: #F8F1E9;
+  --dark: #2D2D2D;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; line-height: 1.6; }
+a { text-decoration: none; }
+ul { list-style: none; }
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .container { padding: 0 1rem; }
+}

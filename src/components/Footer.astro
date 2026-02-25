@@ -1,0 +1,35 @@
+---
+const { lang } = Astro.props;
+---
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>CJ TripFlow</h4>
+        <p>Private excursions in Portugal's wine regions and beyond.</p>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <ul>
+          <li><a href={`/${lang}/activities`}>Activities</a></li>
+          <li><a href={`/${lang}/contact`}>Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Email: info@cjtripflow.com</p>
+        <p>Phone: +351 123 456 789</p>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 CJ TripFlow. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--primary); color: white; padding: 4rem 0; }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+  h4 { font-family: 'Playfair Display', serif; margin-bottom: 1rem; }
+  ul { list-style: none; padding: 0; }
+  ul a { color: white; text-decoration: none; }
+  .copyright { text-align: center; margin-top: 2rem; opacity: 0.8; }
+</style>

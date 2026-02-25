@@ -1,0 +1,151 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="CJ TripFlow – Private Excursions in Portugal">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Discover Authentic Portugal</h1>
+      <p class="subtitle">
+        Small-group excursions, wine tastings, hidden gems & private experiences in the heart of Portugal.
+      </p>
+      <div class="hero-cta">
+        <a href="/en/activities" class="btn-primary">Explore Activities</a>
+        <a href="#featured" class="btn-secondary">See Highlights</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us -->
+  <section class="section intro">
+    <div class="container">
+      <h2>Why travel with CJ TripFlow?</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Small Groups Only</h3>
+          <p>Max 8–12 people – personal, relaxed & authentic experiences.</p>
+        </div>
+        <div class="card">
+          <h3>Local Experts</h3>
+          <p>Guides born and raised in the regions we explore – real stories, no crowds.</p>
+        </div>
+        <div class="card">
+          <h3>Flexible & Private</h3>
+          <p>Custom dates, tailor-made tours, wine tastings & more – just ask.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Activities -->
+  <section id="featured" class="section featured">
+    <div class="container">
+      <h2>Our Most Popular Experiences</h2>
+      <div class="grid-3">
+        <div class="activity-card">
+          <div class="activity-image" style="background-image: url('/assets/images/douro-vineyards.jpg');"></div>
+          <div class="activity-content">
+            <h3>Douro Valley Wine Journey</h3>
+            <p>Private boat + winery tour • Full day • From Porto</p>
+            <a href="/en/activity/douro-wine-journey" class="btn-outline">Request Quote</a>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-image" style="background-image: url('/assets/images/alentejo-tasting.jpg');"></div>
+          <div class="activity-content">
+            <h3>Alentejo Secret Tastings</h3>
+            <p>Olive oil, cheese & regional wines • Half day • Évora area</p>
+            <a href="/en/activity/alentejo-secret" class="btn-outline">Request Quote</a>
+          </div>
+        </div>
+        <div class="activity-card affiliate">
+          <div class="activity-image" style="background-image: url('/assets/images/sintra-palace.jpg');"></div>
+          <div class="activity-content">
+            <h3>Sintra & Sintra Highlights (Partner)</h3>
+            <p>Magical palaces & nature • Full day • Lisbon pickup</p>
+            <a href="https://example-partner.com/sintra-tour?ref=cjtripflow" target="_blank" class="btn-outline">Book via Partner</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-2">
+        <a href="/en/activities" class="btn-primary">View All Experiences</a>
+      </div>
+    </div>
+  </section>
+
+</MainLayout>
+
+<style>
+  :root {
+    --primary: #4A7043;
+    --secondary: #8B4513;
+    --accent: #D4A373;
+    --light: #F8F1E9;
+    --dark: #2D2D2D;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('/assets/images/hero-portugal-vineyard.jpg') center/cover no-repeat;
+    filter: brightness(0.65);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 2rem; }
+  .hero h1 { font-size: clamp(3.5rem, 8vw, 6.5rem); margin-bottom: 1.2rem; line-height: 1.05; }
+  .subtitle { font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 2.5rem; opacity: 0.95; }
+  .hero-cta { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary, .btn-secondary, .btn-outline {
+    display: inline-block;
+    padding: 1rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-primary { background: var(--primary); color: white; }
+  .btn-primary:hover { background: #3e5f38; transform: translateY(-3px); }
+  .btn-secondary { background: transparent; border: 2px solid white; color: white; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+  .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+  .btn-outline:hover { background: var(--primary); color: white; }
+
+  .section { padding: 7rem 0; }
+  .intro { background: white; }
+  .featured { background: var(--light); }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+
+  .card, .activity-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
+  .card:hover, .activity-card:hover { transform: translateY(-10px); }
+
+  .activity-image { height: 240px; background-size: cover; background-position: center; }
+  .activity-content { padding: 1.8rem; text-align: center; }
+  .activity-card h3 { margin-bottom: 0.8rem; font-size: 1.5rem; }
+
+  .text-center { text-align: center; }
+  .mt-2 { margin-top: 2rem; }
+
+  @media (max-width: 768px) {
+    .hero { min-height: 80vh; }
+    .hero h1 { font-size: 3.8rem; }
+    .hero-cta { flex-direction: column; gap: 1rem; }
+  }
+</style>
